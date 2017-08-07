@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<title>Template</title>
+</head>
+<body class="body" >
+<DIV>
+
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+<br><br>
+<form method="get" action="/polls">
+<input type="submit" value="<<Back">
+</form>
+
+</DIV>
+</body>
+</html>
+
